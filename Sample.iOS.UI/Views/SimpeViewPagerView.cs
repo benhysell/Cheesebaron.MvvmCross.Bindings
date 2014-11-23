@@ -64,7 +64,7 @@ namespace Sample.iOS.UI
         /// <summary>
         /// Called when the View is first loaded
         /// </summary>
-        public override void ViewWillAppear(bool animated)     
+        public override void ViewWillAppear(bool animated)
         {
             base.ViewDidAppear(animated);
             Title = "UIPageViewController";
@@ -88,16 +88,14 @@ namespace Sample.iOS.UI
             for (i = 0; i < ViewModel.Items.Count; i++)
             {
                 var pageViewController = CreatePage(ViewModel.Items[i]);
-                //note on this screen we are placing it absolutely at the bottom of the picker
-                //thus, y == 0
                 pageViewController.View.Frame = new RectangleF(UIScreen.MainScreen.Bounds.Width * i, 0, UIScreen.MainScreen.Bounds.Width, UIScreen.MainScreen.Bounds.Height);
                 scrollView.AddSubview(pageViewController.View);
             }
-            scrollView.ContentSize = new SizeF(UIScreen.MainScreen.Bounds.Width * (i == 0 ? 1 : i), UIScreen.MainScreen.Bounds.Height);              
-            pageControl.Pages = i; 
+            scrollView.ContentSize = new SizeF(UIScreen.MainScreen.Bounds.Width * (i == 0 ? 1 : i), UIScreen.MainScreen.Bounds.Height);
+            pageControl.Pages = i;
         }
 
-        
+
         /// <summary>
         /// Given a ViewModel create a UIViewController for the UIPageViewController
         /// </summary>
@@ -105,9 +103,9 @@ namespace Sample.iOS.UI
         /// <returns></returns>
         private UIViewController CreatePage(IMvxViewModel viewModel)
         {
-            var controller = new UINavigationController();           
-            var screen = this.CreateViewControllerFor(viewModel) as UIViewController;              
-            controller.PushViewController(screen, false);           
+            var controller = new UINavigationController();
+            var screen = this.CreateViewControllerFor(viewModel) as UIViewController;
+            controller.PushViewController(screen, false);
             return controller;
         }
 
