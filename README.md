@@ -5,6 +5,7 @@ Bindings for MvvmCross
 
 Includes bindings for:
 - Android ViewPager
+- Example in iOS for a custom presenter using UIPageControl/UIScrollView combination
 
 Thanks to
 ---------
